@@ -1,7 +1,5 @@
 import { create } from "zustand";
 import type { Expense, Store } from "@/types/app";
-import { join } from "path";
-import { ChartBar, Dice5, Heading4, ListVideo, LucideClock10, PackageIcon, X } from "lucide-react";
 
 
 export const UserStore = create<Store>()((set) => ({
