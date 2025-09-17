@@ -1,7 +1,7 @@
 export type Expense = {
     id : string ;
     amount : number ;
-    date : Date ;
+    date : string ;
     category : Category ;
     description ?: string ;
     paymentMethod : PaymentMethod
@@ -21,7 +21,8 @@ export type Store = {
     user : User ,
     changeBudget : (newBudget:number) => void ,
     toggleMode : () => void ,
-    addExpense : (newExpense:Expense) => void
+    addExpense : (newExpense:Expense) => void ,
+    removeExpense : (expenseId:string) => void ,
 }
 
 export type Category = 'travel' | 'food' | 'bills' | 'general' ;

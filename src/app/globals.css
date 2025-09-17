@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Reenie+Beanie&family=Roboto:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+.myExpensiveFont {
+  font-family: 'Pacifico', cursive;
+}
+
+.robotoFont {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

@@ -1,12 +1,11 @@
 import { create } from "zustand";
 import type { Expense, Store } from "@/types/app";
 
-
 export const UserStore = create<Store>()((set) => ({
     user: {
         name: '',
-        expenses: localStorage.getItem('expenses') ? JSON.parse(localStorage.getItem('expenses') as string) : [],
-        budget: 5000,
+        expenses: [] as Expense[],
+        budget: 0 ,
         mode: 'dark' 
     },
     changeBudget: (newBudget: number) =>
@@ -27,7 +26,14 @@ export const UserStore = create<Store>()((set) => ({
         set((state) => ({
             user : {
                 ...state.user ,
-                expenses : [...(state.user.expenses || []) , newExpense ]
+                expenses : [  newExpense , ...(state.user.expenses || []) ]
+            }
+        })),
+    removeExpense : (expenseId:string) => 
+        set((state) => ({
+            user : {
+                ...state.user , 
+                expenses : (state.user.expenses!).filter((expense) => expense.id !== expenseId)
             }
         }))
 }));
